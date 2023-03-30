@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.navbar {
+  display: flex;
+}
+.navbar li {
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  list-style: none;
+}
