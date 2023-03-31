@@ -1,24 +1,30 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import "./Navbar.css"
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false)
   const [background, setBackground] = useState(false)
 
-  const changeBackground = () => {
-    if (window.scrollY >= 1) {
-      setBackground(true)
-    } else {
-      setBackground(false)
+  useEffect(() => {
+    const changeBackground = () => {
+      if (window.scrollY >= 1) {
+        setBackground(true)
+      } else {
+        setBackground(false)
+      }
     }
-  }
-  window.addEventListener("scroll", changeBackground)
+
+    window.addEventListener("scroll", changeBackground)
+    return () => window.removeEventListener("scroll", changeBackground)
+  }, [])
+
   return (
     <div className={`header ${background ? "header-bg" : ""}`}>
       <Link to="/">
-        <h1>Portfolio</h1>
+        <h1>JC</h1>
       </Link>
 
       <ul className={`navbar ${menu ? "active" : ""}`}>
