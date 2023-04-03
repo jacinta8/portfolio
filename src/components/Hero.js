@@ -1,17 +1,25 @@
 import React, { useEffect } from "react"
-import IntroImg from "../assets/background.jpg"
+import IntroImg from "../assets/background.jpeg"
 import Typical from "react-typical"
-import { Link } from "react-router-dom"
+import Brush from "../assets/brush.png"
+
 import "./Hero.css"
 
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="mask">
+      {/* <div className="mask">
         <img src={IntroImg} alt="hero" className="hero-img" />
-      </div>
+      </div> */}
       <div className="content">
-        <p className="person">Jacinta Chen</p>
+        <p className="person">
+          Jacinta
+          <span>
+            Chen
+            <img src={Brush} alt="Brush" />
+          </span>
+        </p>
+
         <p className="title">
           <Typical
             loop={Infinity}
@@ -25,11 +33,17 @@ const Hero = () => {
         </p>
 
         <div className="btn-container">
-          <Link to="/contact" className="btn">
-            Contact
-          </Link>
-          <a href="Jacinta-Chen-CV.pdf" download="Jacinta-chen-CV.pdf">
-            <button className="btn">Resume</button>
+          <a to="/contact" className="btn">
+            <span>Contact</span>
+            <i></i>
+          </a>
+          <a
+            href="Jacinta-Chen-CV.pdf"
+            download="Jacinta-chen-CV.pdf"
+            className="btn"
+          >
+            <span>Resume</span>
+            <i></i>
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+
 import { FaBars, FaTimes } from "react-icons/fa"
 import { useState, useEffect } from "react"
 import "./Navbar.css"
@@ -23,22 +23,22 @@ const Navbar = () => {
 
   return (
     <div className={`header ${background ? "header-bg" : ""}`}>
-      <Link to="/">
+      <a to="/">
         <h1>JC</h1>
-      </Link>
+      </a>
 
       <ul className={`navbar ${menu ? "active" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <a to="/">Home</a>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <a to="/about">About</a>
         </li>
         <li>
-          <Link to="/project">Project</Link>
+          <a to="/project">Project</a>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <a to="/contact">Contact</a>
         </li>
       </ul>
 
@@ -46,13 +46,13 @@ const Navbar = () => {
         {menu ? (
           <FaTimes
             size={20}
-            style={{ color: "hsl(163, 90%, 27%)" }}
+            style={{ color: "#fff" }}
             onClick={() => setMenu(!menu)}
           />
         ) : (
           <FaBars
             size={20}
-            style={{ color: "hsl(163, 90%, 27%)" }}
+            style={{ color: "#fff" }}
             onClick={() => setMenu(!menu)}
           />
         )}

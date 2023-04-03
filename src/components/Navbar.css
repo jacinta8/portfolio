@@ -10,7 +10,7 @@
   top: 0;
 }
 .header-bg {
-  background-color: rgba(240, 240, 240, 0.764);
+  background-color: var(--clr-primary-1);
 }
 .navbar {
   display: flex;
@@ -20,6 +20,11 @@
   font-size: 1.2rem;
   font-weight: 500;
   list-style: none;
+}
+
+.navbar li a:hover,
+.navbar li a:active {
+  color: var(--clr-primary-2);
 }
 
 .hamburger {
@@ -40,7 +45,7 @@ Navbar
     height: 100vh;
     position: absolute;
 
-    background-color: rgba(240, 240, 240, 0.899);
+    background-color: #040404de;
     top: 0;
     left: -100%;
     z-index: -3;
