@@ -3,8 +3,76 @@ import "./Skill.css"
 import { useState, useEffect } from "react"
 
 const Skill = () => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.querySelector(".skill-section")
+      const elementTop = element.getBoundingClientRect().top
+
+      const windowHeight = window.innerHeight
+      console.log("windowHeight", windowHeight)
+
+      if (elementTop < windowHeight) {
+        setIsVisible(true)
+        window.removeEventListener("scroll", handleScroll)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+  const loops = [
+    [
+      "Router",
+      "Javascript",
+      "HTML",
+      "CSS",
+      "React",
+      "Redux",
+      "Router",
+      "Javascript",
+      "HTML",
+      "CSS",
+      "React",
+      "Redux",
+    ],
+    [
+      "Typescript",
+      "React Testing",
+      "RESTful API",
+      "Github",
+      "Cypress",
+      "GraphQL",
+      "Typescript",
+      "React Testing",
+      "RESTful API",
+      "Github",
+      "Cypress",
+      "GraphQL",
+    ],
+  ]
+
+  const loopItems = loops.map((tags, index) => {
+    const direction = index === 1 ? "reverse" : "normal"
+    const duration = Math.floor(Math.random() * (20000 - 15000)) + 15000
+    return (
+      <div
+        key={index}
+        className="loop"
+        style={{ "--direction": direction, "--duration": `${duration}ms` }}
+      >
+        {tags.map((tag, index) => (
+          <div key={index} className="tag">
+            <span>#</span>
+            {tag}
+          </div>
+        ))}
+      </div>
+    )
+  })
   return (
-    <section className="skill-section">
+    <section className={`skill-section ${isVisible ? "animate" : ""}`}>
       <div className="skill">
         <p className="title">
           ABOUT <span>ME</span>
@@ -14,89 +82,9 @@ const Skill = () => {
           and have willingness to learn new skills. Like coding and passion for
           creativity.
         </p>
-        <div class="effect">
-          <div class="loop-wrap">
-            <div class="loop">
-              <div class="tag">
-                <span>#</span>Javascript
-              </div>
-              <div class="tag">
-                <span>#</span>HTML
-              </div>
-              <div class="tag">
-                <span>#</span>CSS
-              </div>
-              <div class="tag">
-                <span>#</span>React
-              </div>
-              <div class="tag">
-                <span>#</span>Redux
-              </div>
-              <div class="tag">
-                <span>#</span>Router
-              </div>
-              <div class="tag">
-                <span>#</span>Javascript
-              </div>
-              <div class="tag">
-                <span>#</span>HTML
-              </div>
-              <div class="tag">
-                <span>#</span>CSS
-              </div>
-              <div class="tag">
-                <span>#</span>React
-              </div>
-              <div class="tag">
-                <span>#</span>Redux
-              </div>
-
-              <div class="tag">
-                <span>#</span>Router
-              </div>
-            </div>
-
-            <div class="loop">
-              <div class="tag">
-                <span>#</span>Typescript
-              </div>
-              <div class="tag">
-                <span>#</span>React testing library
-              </div>
-              <div class="tag">
-                <span>#</span>RESTful APIs
-              </div>
-              <div class="tag">
-                <span>#</span>Github
-              </div>
-              <div class="tag">
-                <span>#</span>RESTful APIs
-              </div>
-              <div class="tag">
-                <span>#</span>Cypress
-              </div>
-              <div class="tag">
-                <span>#</span>Typescript
-              </div>
-              <div class="tag">
-                <span>#</span>React testing library
-              </div>
-              <div class="tag">
-                <span>#</span>RESTful APIs
-              </div>
-              <div class="tag">
-                <span>#</span>Github
-              </div>
-              <div class="tag">
-                <span>#</span>RESTful APIs
-              </div>
-              <div class="tag">
-                <span>#</span>Cypress
-              </div>
-            </div>
-
-            <div class="fade"></div>
-          </div>
+        <div className="effect">
+          <div className="loop-wrap">{loopItems}</div>
+          <div className="fade"></div>
         </div>
       </div>
     </section>

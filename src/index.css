@@ -18,6 +18,11 @@ Variables
     rgb(253 204 73) 45.05%,
     rgb(220 68 146) 78.07%
   );
+  --clr-primary-6: linear-gradient(
+    20.21deg,
+    rgb(220 68 146) -5.91%,
+    rgb(205, 44, 233) 200.58%
+  );
 }
 
 /*

@@ -45,7 +45,8 @@ Navbar
     height: 100vh;
     position: absolute;
 
-    background-color: #040404de;
+    background-color: #040404d2;
+
     top: 0;
     left: -100%;
     z-index: -3;

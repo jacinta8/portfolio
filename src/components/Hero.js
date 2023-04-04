@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import IntroImg from "../assets/background.jpeg"
+// import IntroImg from "../assets/background.jpeg"
 import Typical from "react-typical"
 import Brush from "../assets/brush.png"
 
