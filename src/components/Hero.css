@@ -57,9 +57,10 @@
   right: -20%;
   z-index: -10;
 }
-.title {
+.job-title {
   font-size: 1.2rem;
   font-weight: 500;
+  color: var(--clr-primary-2);
   text-transform: uppercase;
 }
 
@@ -69,22 +70,4 @@
 
 .hero .btn {
   margin: 1rem 1rem 0 0;
-}
-
-@media screen and (max-width: 761px) {
-  .person {
-    font-size: 3rem;
-  }
-  .title {
-    font-size: 1rem;
-  }
-  /* .hero .btn {
-    font-size: 0.9rem;
-    padding: 0.9rem 2rem;
-  } */
-  .btn-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 2rem;
-  }
 }

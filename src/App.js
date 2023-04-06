@@ -1,8 +1,8 @@
 import "./index.css"
+import Home from "./components/Home"
 import Skill from "./components/Skill"
 import Contact from "./components/Contact"
 import Project from "./components/Project"
-import Home from "./components/Home"
 
 function App() {
   return (
@@ -10,7 +10,6 @@ function App() {
       <Home />
       <Skill />
       <Project />
-
       <Contact />
     </>
   )

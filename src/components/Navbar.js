@@ -1,9 +1,7 @@
 import React from "react"
-
 import { FaBars, FaTimes } from "react-icons/fa"
 import { useState, useEffect } from "react"
 import "./Navbar.css"
-
 const Navbar = () => {
   const [menu, setMenu] = useState(false)
   const [background, setBackground] = useState(false)
@@ -23,22 +21,22 @@ const Navbar = () => {
 
   return (
     <div className={`header ${background ? "header-bg" : ""}`}>
-      <a to="/">
+      <a href="#">
         <h1>JC</h1>
       </a>
 
       <ul className={`navbar ${menu ? "active" : ""}`}>
         <li>
-          <a to="/">Home</a>
+          <a href="#">Home</a>
         </li>
         <li>
-          <a to="/about">About</a>
+          <a href="#skill">Skill</a>
         </li>
         <li>
-          <a to="/project">Project</a>
+          <a href="#project">Project</a>
         </li>
         <li>
-          <a to="/contact">Contact</a>
+          <a href="#contact">Contact</a>
         </li>
       </ul>
 

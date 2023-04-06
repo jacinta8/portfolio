@@ -1,27 +1,8 @@
 import React from "react"
 import "./Skill.css"
-import { useState, useEffect } from "react"
-
+import { useMediaQuery } from "../hook/useMediaQuery"
 const Skill = () => {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.querySelector(".skill-section")
-      const elementTop = element.getBoundingClientRect().top
-
-      const windowHeight = window.innerHeight
-      console.log("windowHeight", windowHeight)
-
-      if (elementTop < windowHeight) {
-        setIsVisible(true)
-        window.removeEventListener("scroll", handleScroll)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const isVisible = useMediaQuery("#skill")
   const loops = [
     [
       "Router",
@@ -72,19 +53,21 @@ const Skill = () => {
     )
   })
   return (
-    <section className={`skill-section ${isVisible ? "animate" : ""}`}>
-      <div className="skill">
-        <p className="title">
-          ABOUT <span>ME</span>
-        </p>
-        <p className="introduction">
-          I am an experienced Front End Developer with strong learning ability
-          and have willingness to learn new skills. Like coding and passion for
-          creativity.
-        </p>
-        <div className="effect">
-          <div className="loop-wrap">{loopItems}</div>
-          <div className="fade"></div>
+    <section id="skill">
+      <div className={`skill-section ${isVisible ? "animate" : ""}`}>
+        <div className="skill">
+          <p className="title">
+            ABOUT <span>ME</span>
+          </p>
+          <p className="introduction">
+            I am an experienced Front End Developer with strong learning ability
+            and have willingness to learn new skills. Like coding and passion
+            for creativity.
+          </p>
+          <div className="effect">
+            <div className="loop-wrap">{loopItems}</div>
+            <div className="fade"></div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-import React, { useEffect } from "react"
-// import IntroImg from "../assets/background.jpeg"
 import Typical from "react-typical"
 import Brush from "../assets/brush.png"
 
@@ -8,9 +6,6 @@ import "./Hero.css"
 const Hero = () => {
   return (
     <div className="hero">
-      {/* <div className="mask">
-        <img src={IntroImg} alt="hero" className="hero-img" />
-      </div> */}
       <div className="content">
         <p className="person">
           Jacinta
@@ -20,7 +15,7 @@ const Hero = () => {
           </span>
         </p>
 
-        <p className="title">
+        <p className="job-title">
           <Typical
             loop={Infinity}
             steps={[
@@ -37,11 +32,7 @@ const Hero = () => {
             <span>Contact</span>
             <i></i>
           </a>
-          <a
-            href="Jacinta-Chen-CV.pdf"
-            download="Jacinta-chen-CV.pdf"
-            className="btn"
-          >
+          <a href="Jacinta-Chen-CV.pdf" download className="btn">
             <span>Resume</span>
             <i></i>
           </a>
