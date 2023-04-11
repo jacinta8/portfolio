@@ -81,6 +81,14 @@ const Contact = () => {
   const isVisible = useMediaQuery("#contact")
   const [isFormValid, setFormIsValid] = useState(false)
   const [successMsg, setSuccessMsg] = useState(false)
+  const elementRef = useRef(null)
+
+  const handleClick = () => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth",
+    })
+  }
 
   const [stateName, dispatchName] = useReducer(nameReducer, {
     value: "",
@@ -179,7 +187,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact">
+    <section id="contact" ref={elementRef} onClick={handleClick}>
       <div className={`contact-section ${isVisible ? "animate" : ""}`}>
         <p className="title">
           CON<span>TACT</span>
