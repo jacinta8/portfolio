@@ -89,6 +89,14 @@ const Contact = () => {
       behavior: "smooth",
     })
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (successMsg) setSuccessMsg(false)
+    }, 2000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [successMsg])
 
   const [stateName, dispatchName] = useReducer(nameReducer, {
     value: "",
@@ -196,7 +204,7 @@ const Contact = () => {
           <img src={ContactImg} alt="connection" className="connection-img" />
 
           <form ref={form} onSubmit={sendEmail}>
-            {successMsg && <p className="alert">Successfully sent</p>}
+            {successMsg && <p className="alert">Successfully sent !</p>}
 
             <div className="form-group">
               <div
