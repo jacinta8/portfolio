@@ -28,7 +28,7 @@ const Hero = () => {
         </p>
 
         <div className="btn-container">
-          <a to="/contact" className="btn">
+          <a href="#contact" className="btn">
             <span>Contact</span>
             <i></i>
           </a>

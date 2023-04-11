@@ -1,5 +1,5 @@
 .project-section {
-  width: 75%;
+  width: 85%;
   height: 100%;
   margin: 15rem auto;
 
@@ -10,7 +10,7 @@
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 3.5rem;
   margin-top: 5em;
   list-style: none;
