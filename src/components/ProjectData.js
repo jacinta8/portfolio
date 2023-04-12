@@ -1,6 +1,8 @@
 import Project1 from "../assets/project1.png"
 import Project2 from "../assets/project2.png"
 import Project3 from "../assets/project3.png"
+import Project4 from "../assets/project4.png"
+import Project5 from "../assets/project5.png"
 
 export const ProjectData = [
   {
@@ -26,5 +28,19 @@ export const ProjectData = [
     description: "Photo grid with search using React useContext, Typescript",
     github: "https://github.com/jacinta8/stocks-photos",
     website: "https://jacinta8.github.io/stocks-photos/",
+  },
+  {
+    title: "Omnifood",
+    img: Project4,
+    description: "A healthy meal plan app using vanilla Javascript",
+    github: "https://github.com/jacinta8/Omnifood",
+    website: "https://jacinta8.github.io/Omnifood/",
+  },
+  {
+    title: "Omnifood",
+    img: Project5,
+    description: "An expense chart app using react, react hooks",
+    github: "https://github.com/jacinta8/expense-chart",
+    website: "https://jacinta8.github.io/expense-chart/",
   },
 ]

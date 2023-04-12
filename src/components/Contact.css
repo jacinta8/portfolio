@@ -11,6 +11,7 @@
 .connection-img {
   width: 42rem;
   height: 35rem;
+  opacity: 0.5;
 }
 .alert {
   color: #fff;
