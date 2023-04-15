@@ -98,3 +98,26 @@
     transform: translateX(-50%);
   }
 }
+@media screen and (max-width: 761px) {
+  .skill-section {
+    width: 90%;
+    padding: 3rem 0;
+  }
+  .introduction {
+    width: 90%;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .effect {
+    margin: 1rem 0;
+    width: 90%;
+  }
+
+  .tag {
+    gap: 0 0.1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    margin-right: 0.8rem;
+    height: 36px;
+  }
+}
