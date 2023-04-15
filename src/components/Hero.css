@@ -71,3 +71,17 @@
 .hero .btn {
   margin: 1rem 1rem 0 0;
 }
+@media screen and (max-width: 761px) {
+  .person {
+    font-size: 3rem;
+  }
+  .job-title {
+    font-size: 1rem;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+}

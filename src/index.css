@@ -183,24 +183,6 @@ GLOBAL
 
   .title {
     width: fit-content;
-  }
-
-  /*
-=============== 
-HERO
-===============
-*/
-
-  .person {
-    font-size: 3rem;
-  }
-  .job-title {
-    font-size: 1rem;
-  }
-
-  .btn-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 2rem;
+    font-size: 2rem;
   }
 }
