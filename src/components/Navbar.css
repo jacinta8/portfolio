@@ -51,6 +51,7 @@ Navbar
     left: -100%;
     z-index: -3;
     transition: 0.5s;
+    -webkit-transition: 0.5s;
   }
 
   .navbar.active {

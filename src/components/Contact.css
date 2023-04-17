@@ -48,6 +48,7 @@ form {
   border: none;
   outline: none;
   transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
 }
 
 .animated-label {
@@ -59,6 +60,7 @@ form {
   font-weight: 300;
   opacity: 0.4;
   transition: 0.3s all ease-out;
+  -webkit-transition: 0.3s all ease-out;
   user-select: none;
 }
 .move-up {
@@ -82,6 +84,7 @@ form {
   width: 0;
   height: 0.1rem;
   transition: all 0.4s linear;
+  -webkit-transition: all 0.4s linear;
   background: rgb(44 188 233);
 }
 .form-control:focus + .sliding-border::before {

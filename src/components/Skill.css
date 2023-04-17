@@ -48,10 +48,15 @@
   width: fit-content;
 
   animation-name: loop;
+  -webkit-animation-name: loop;
   animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
   animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
   animation-direction: var(--direction);
+  -webkit-animation-direction: var(--direction);
   animation-duration: var(--duration);
+  -webkit-animation-duration: var(--duration);
   margin-bottom: 10px;
   width: 100%;
 }
@@ -67,6 +72,8 @@
   padding: 0.7rem 1rem;
   margin-right: 1rem;
   box-shadow: 0 0.1rem 0.2rem rgba(59, 58, 58, 0.2),
+    0 0.1rem 0.5rem rgba(73, 71, 71, 0.3), 0 0.2rem 1.5rem rgb(0 0 0 / 40%);
+  -webkit-box-shadow: 0 0.1rem 0.2rem rgba(59, 58, 58, 0.2),
     0 0.1rem 0.5rem rgba(73, 71, 71, 0.3), 0 0.2rem 1.5rem rgb(0 0 0 / 40%);
   height: 40px;
 }
