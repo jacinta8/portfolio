@@ -12,6 +12,10 @@
 .header-bg {
   background-color: var(--clr-primary-1);
 }
+.logo {
+  width: 5rem;
+  height: 3rem;
+}
 .navbar {
   display: flex;
 }

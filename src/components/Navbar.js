@@ -2,6 +2,7 @@ import React from "react"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { useState, useEffect } from "react"
 import "./Navbar.css"
+import Logo from "../assets/logo.png"
 const Navbar = () => {
   const [menu, setMenu] = useState(false)
   const [background, setBackground] = useState(false)
@@ -22,7 +23,7 @@ const Navbar = () => {
   return (
     <div className={`header ${background ? "header-bg" : ""}`}>
       <a href="#">
-        <h1>JC</h1>
+        <img className="logo" src={Logo} alt="JC" />
       </a>
 
       <ul className={`navbar ${menu ? "active" : ""}`}>
