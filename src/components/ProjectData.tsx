@@ -37,7 +37,7 @@ export const ProjectData = [
     website: "https://jacinta8.github.io/Omnifood/",
   },
   {
-    title: "Omnifood",
+    title: "Expense chart",
     img: Project5,
     description: "An expense chart app using react, react hooks",
     github: "https://github.com/jacinta8/expense-chart",

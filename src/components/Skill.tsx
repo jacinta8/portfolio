@@ -1,9 +1,10 @@
 import React from "react"
 import "./Skill.css"
 import { useMediaQuery } from "../hook/useMediaQuery"
+
 const Skill = () => {
   const isVisible = useMediaQuery("#skill")
-  const loops = [
+  const loops: string[][] = [
     [
       "Router",
       "Javascript",
@@ -34,14 +35,19 @@ const Skill = () => {
     ],
   ]
 
-  const loopItems = loops.map((tags, index) => {
-    const direction = index === 1 ? "reverse" : "normal"
-    const duration = Math.floor(Math.random() * (20000 - 15000)) + 15000
+  const loopItems = loops.map((tags: string[], index: number) => {
+    const direction: string = index === 1 ? "reverse" : "normal"
+    const duration: number = Math.floor(Math.random() * (20000 - 15000)) + 15000
     return (
       <div
         key={index}
         className="loop"
-        style={{ "--direction": direction, "--duration": `${duration}ms` }}
+        style={
+          {
+            "--direction": direction,
+            "--duration": `${duration}ms`,
+          } as React.CSSProperties
+        }
       >
         {tags.map((tag, index) => (
           <div key={index} className="tag">

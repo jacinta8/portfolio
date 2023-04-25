@@ -1,6 +1,6 @@
 import Typical from "react-typical"
 import Brush from "../assets/brush.png"
-
+import React from "react"
 import "./Hero.css"
 
 const Hero = () => {

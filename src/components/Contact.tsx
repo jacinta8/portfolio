@@ -5,14 +5,29 @@ import { useMediaQuery } from "../hook/useMediaQuery"
 import emailjs from "@emailjs/browser"
 import { FaRegHandshake, FaAngleDoubleRight } from "react-icons/fa"
 
-const nameReducer = (state, action) => {
+type State = {
+  value: string | null
+  isValid?: boolean
+  isTouched?: boolean | undefined
+}
+
+type Action =
+  | { type: "USER_NAME"; val: string }
+  | { type: "USER_EMAIL"; val: string }
+  | { type: "USER_MSG"; val: string }
+  | { type: "INPUT_BLUR" }
+  | { type: "RESET_MSG" }
+  | { type: "RESET_NAME" }
+  | { type: "RESET_EMAIL" }
+
+const nameReducer = (state: State, action: Action): State => {
   if (action.type === "USER_NAME") {
-    return { value: action.val, isValid: action.val.trim() !== "" }
+    return { value: action.val, isValid: action.val?.trim() !== "" }
   }
   if (action.type === "INPUT_BLUR") {
     return {
       value: state.value,
-      isValid: state.value.trim() !== "",
+      isValid: state.value?.trim() !== "",
       isTouched: true,
     }
   }
@@ -22,34 +37,35 @@ const nameReducer = (state, action) => {
       isTouched: false,
     }
   }
+  return state
 }
-const emailReducer = (state, action) => {
+const emailReducer = (state: State, action: Action): State => {
   if (action.type === "USER_EMAIL") {
-    const atIndex = action.val.indexOf("@")
-    const lastAtIndex = action.val.lastIndexOf("@")
-
-    return {
-      value: action.val,
-      isValid:
-        action.val.includes("@") &&
-        atIndex > 0 &&
-        lastAtIndex === atIndex &&
-        atIndex < action.val.length - 1,
-    }
+    const atIndex = action.val?.indexOf("@")
+    const lastAtIndex = action.val?.lastIndexOf("@")
+    if (atIndex !== undefined)
+      return {
+        value: action.val,
+        isValid:
+          action.val?.includes("@") &&
+          atIndex > 0 &&
+          lastAtIndex === atIndex &&
+          atIndex < action.val.length - 1,
+      }
   }
   if (action.type === "INPUT_BLUR") {
-    const atIndex = state.value.indexOf("@")
-    const lastAtIndex = state.value.lastIndexOf("@")
-
-    return {
-      value: state.value,
-      isValid:
-        state.value.includes("@") &&
-        atIndex > 0 &&
-        lastAtIndex === atIndex &&
-        atIndex < state.value.length - 1,
-      isTouched: true,
-    }
+    const atIndex = state.value?.indexOf("@")
+    const lastAtIndex = state.value?.lastIndexOf("@")
+    if (atIndex !== undefined)
+      return {
+        value: state.value,
+        isValid:
+          state.value?.includes("@") &&
+          atIndex > 0 &&
+          lastAtIndex === atIndex &&
+          atIndex < state.value.length - 1,
+        isTouched: true,
+      }
   }
   if (action.type === "RESET_EMAIL") {
     return {
@@ -57,15 +73,16 @@ const emailReducer = (state, action) => {
       isTouched: false,
     }
   }
+  return state
 }
-const msgReducer = (state, action) => {
+const msgReducer = (state: State, action: Action): State => {
   if (action.type === "USER_MSG") {
     return { value: action.val, isValid: action.val.trim() !== "" }
   }
   if (action.type === "INPUT_BLUR") {
     return {
       value: state.value,
-      isValid: state.value.trim() !== "",
+      isValid: state.value?.trim() !== "",
       isTouched: true,
     }
   }
@@ -75,17 +92,19 @@ const msgReducer = (state, action) => {
       isTouched: false,
     }
   }
+  return state
 }
 
 const Contact = () => {
   const isVisible = useMediaQuery("#contact")
-  const [isFormValid, setFormIsValid] = useState(false)
-  const [successMsg, setSuccessMsg] = useState(false)
-  const elementRef = useRef(null)
+  const [isFormValid, setFormIsValid] = useState<boolean>(false)
+  const [successMsg, setSuccessMsg] = useState<boolean>(false)
+  const elementRef = useRef<HTMLInputElement>(null)
+  const form = useRef<HTMLFormElement>(null)
 
   const handleClick = () => {
     window.scrollTo({
-      top: elementRef.current.offsetTop,
+      top: elementRef.current?.offsetTop,
       behavior: "smooth",
     })
   }
@@ -132,7 +151,8 @@ const Contact = () => {
   } = stateMsg
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFormIsValid(isNameValid && isEmailValid && isMsgValid)
+      if (isNameValid && isEmailValid && isMsgValid !== undefined)
+        setFormIsValid(isNameValid && isEmailValid && isMsgValid)
     }, 500)
 
     return () => {
@@ -140,19 +160,19 @@ const Contact = () => {
     }
   }, [nameValue, emailValue, msgValue])
 
-  const inputNameHandler = (event) => {
+  const inputNameHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatchName({ type: "USER_NAME", val: event.target.value })
   }
   const nameInputBlurHandler = () => {
     dispatchName({ type: "INPUT_BLUR" })
   }
-  const inputEmailHandler = (event) => {
+  const inputEmailHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatchEmail({ type: "USER_EMAIL", val: event.target.value })
   }
   const emailInputBlurHandler = () => {
     dispatchEmail({ type: "INPUT_BLUR" })
   }
-  const inputMsgHandler = (event) => {
+  const inputMsgHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatchMsg({ type: "USER_MSG", val: event.target.value })
   }
   const msgInputBlurHandler = () => {
@@ -163,35 +183,34 @@ const Contact = () => {
     dispatchName({ type: "RESET_NAME" })
     dispatchMsg({ type: "RESET_MSG" })
   }
-  const form = useRef()
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSuccessMsg(true)
-    console.log(successMsg)
+
     if (!isNameValid || !isEmailValid || !isMsgValid) {
       setFormIsValid(false)
       return
     }
-    setFormIsValid(false)
-
-    emailjs
-      .sendForm(
-        "service_daw0w3e",
-        "template_kio97ep",
-        form.current,
-        "kYcRKVukcCEmEqRay"
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-          console.log("message sent")
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
-    resetInput()
+    if (form.current)
+      emailjs
+        .sendForm(
+          "service_daw0w3e",
+          "template_kio97ep",
+          form.current,
+          "kYcRKVukcCEmEqRay"
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+            console.log("message sent")
+            setFormIsValid(false)
+            resetInput()
+          },
+          (error) => {
+            console.log(error.text)
+          }
+        )
   }
 
   return (
@@ -217,7 +236,7 @@ const Contact = () => {
               <label
                 htmlFor="name"
                 className={`animated-label ${
-                  nameValue.trim() !== "" ? "move-up" : ""
+                  nameValue?.trim() !== "" ? "move-up" : ""
                 }`}
               >
                 Name
@@ -227,7 +246,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                value={nameValue}
+                value={nameValue || ""}
                 onChange={inputNameHandler}
                 onBlur={nameInputBlurHandler}
               />
@@ -245,7 +264,7 @@ const Contact = () => {
               <label
                 htmlFor="email"
                 className={`animated-label ${
-                  emailValue.trim() !== "" ? "move-up" : ""
+                  emailValue?.trim() !== "" ? "move-up" : ""
                 }`}
               >
                 Email
@@ -255,7 +274,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                value={emailValue}
+                value={emailValue || ""}
                 onChange={inputEmailHandler}
                 onBlur={emailInputBlurHandler}
               />
@@ -273,7 +292,7 @@ const Contact = () => {
               <label
                 htmlFor="message"
                 className={`animated-label ${
-                  msgValue.trim() !== "" ? "move-up" : ""
+                  msgValue?.trim() !== "" ? "move-up" : ""
                 }`}
               >
                 Message
@@ -282,8 +301,8 @@ const Contact = () => {
                 className="form-control"
                 id="message"
                 name="message"
-                rows="4"
-                value={msgValue}
+                rows={4}
+                value={msgValue || ""}
                 onChange={inputMsgHandler}
                 onBlur={msgInputBlurHandler}
               />

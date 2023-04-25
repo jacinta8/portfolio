@@ -3,7 +3,15 @@ import "./SingleProject.css"
 import { AiFillGithub } from "react-icons/ai"
 import { BsLink } from "react-icons/bs"
 
-const SingleProject = (props) => {
+type ProjectProps = {
+  title: string
+  img: string
+  description: string
+  github: string
+  web: string
+}
+
+const SingleProject = (props: ProjectProps) => {
   const { title, img, description, github, web } = props
 
   return (

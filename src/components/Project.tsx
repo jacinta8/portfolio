@@ -1,7 +1,7 @@
 import React from "react"
 import SingleProject from "./SingleProject"
 import "./Project.css"
-import { ProjectData } from "../components/ProjectData"
+import { ProjectData } from "./ProjectData"
 import { useMediaQuery } from "../hook/useMediaQuery"
 
 const Project = () => {

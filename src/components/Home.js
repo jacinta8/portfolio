@@ -1,6 +1,6 @@
 import React from "react"
-import Navbar from "./Navbar"
-import Hero from "./Hero"
+import Navbar from "./Navbar.tsx"
+import Hero from "./Hero.tsx"
 
 const Home = () => {
   return (

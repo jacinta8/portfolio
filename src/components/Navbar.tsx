@@ -4,11 +4,11 @@ import { useState, useEffect } from "react"
 import "./Navbar.css"
 import Logo from "../assets/logo.png"
 const Navbar = () => {
-  const [menu, setMenu] = useState(false)
-  const [background, setBackground] = useState(false)
+  const [menu, setMenu] = useState<boolean>(false)
+  const [background, setBackground] = useState<boolean>(false)
 
   useEffect(() => {
-    const changeBackground = () => {
+    const changeBackground = (): void => {
       if (window.scrollY >= 1) {
         setBackground(true)
       } else {
@@ -21,7 +21,10 @@ const Navbar = () => {
   }, [])
 
   return (
-    <div className={`header ${background ? "header-bg" : ""}`}>
+    <div
+      className={`header ${background ? "header-bg" : ""}`}
+      onClick={() => setMenu(!menu)}
+    >
       <a href="#">
         <img className="logo" src={Logo} alt="JC" />
       </a>
