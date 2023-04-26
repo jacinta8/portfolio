@@ -226,14 +226,6 @@ const Contact = () => {
             {successMsg && <p className="alert">Successfully sent !</p>}
 
             <div className="form-group">
-              {/* <div
-                className={`check-box ${
-                  !isNameValid && isNameTouched ? "invalid" : ""
-                }`}
-              >
-                Please specify your name
-                   
-              </div> */}
               {!isNameValid && isNameTouched && (
                 <div className="check-box invalid">
                   Please specify your name
@@ -265,13 +257,6 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              {/* <div
-                className={`check-box ${
-                  !isEmailValid && isEmailTouched ? "invalid" : ""
-                }`}
-              >
-                Please enter a valid email.
-              </div> */}
               {!isEmailValid && isEmailTouched && (
                 <div className="check-box invalid">
                   Please enter a valid email
@@ -302,13 +287,6 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              {/* <div
-                className={`check-box ${
-                  !isMsgValid && isMsgTouched ? "invalid" : ""
-                }`}
-              >
-                Please leave your message.
-              </div> */}
               {!isMsgValid && isMsgTouched && (
                 <div className="check-box invalid">
                   Please leave your message
