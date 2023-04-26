@@ -226,13 +226,24 @@ const Contact = () => {
             {successMsg && <p className="alert">Successfully sent !</p>}
 
             <div className="form-group">
-              <div
+              {/* <div
                 className={`check-box ${
                   !isNameValid && isNameTouched ? "invalid" : ""
                 }`}
               >
-                Please specify your name.
-              </div>
+                Please specify your name
+                   
+              </div> */}
+              {!isNameValid && isNameTouched && (
+                <div className="check-box invalid">
+                  Please specify your name
+                </div>
+              )}
+              {!isNameTouched && <div className="check-box"></div>}
+              {isNameValid && isNameTouched && (
+                <div className="check-box">✓</div>
+              )}
+
               <label
                 htmlFor="name"
                 className={`animated-label ${
@@ -254,13 +265,22 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <div
+              {/* <div
                 className={`check-box ${
                   !isEmailValid && isEmailTouched ? "invalid" : ""
                 }`}
               >
                 Please enter a valid email.
-              </div>
+              </div> */}
+              {!isEmailValid && isEmailTouched && (
+                <div className="check-box invalid">
+                  Please enter a valid email
+                </div>
+              )}
+              {!isEmailTouched && <div className="check-box"></div>}
+              {isEmailValid && isEmailTouched && (
+                <div className="check-box">✓</div>
+              )}
               <label
                 htmlFor="email"
                 className={`animated-label ${
@@ -282,13 +302,20 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <div
+              {/* <div
                 className={`check-box ${
                   !isMsgValid && isMsgTouched ? "invalid" : ""
                 }`}
               >
                 Please leave your message.
-              </div>
+              </div> */}
+              {!isMsgValid && isMsgTouched && (
+                <div className="check-box invalid">
+                  Please leave your message
+                </div>
+              )}
+              {!isMsgTouched && <div className="check-box"></div>}
+              {isMsgValid && isMsgTouched && <div className="check-box">✓</div>}
               <label
                 htmlFor="message"
                 className={`animated-label ${
